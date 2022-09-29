@@ -2,14 +2,20 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
+    int xa = 0;
+    int xb = 0;
+    int ya = 0;
+    int yb = 0;
     public static void main(String[] args) {
         NumberTest nt = (n) -> {
             return true;
         };
-        CalculationOperation add = (Number a, Number b)->{return ;};
-        CalculationOperation sub = (Number a, Number b)->{return ;};
-        CalculationOperation mul = (Number a, Number b)->{return ;};
-        CalculationOperation div = (Number a, Number b)->{return ;};
+        CalculationOperation add = (Number a, Number b)->{return new Number(a.getA() + b.getA(), a.getB() + a.getB());};
+        CalculationOperation sub = (Number a, Number b)->{return new Number(a.getA() - b.getA(), a.getB() - b.getB());};
+        CalculationOperation mul = (Number a, Number b)->{return new Number(a.getA() * b.getA(), a.getB() * b.getB());};
+        CalculationOperation div = (Number a, Number b)->{return new Number(a.getA() / b.getA(), a.getB() / b.getB());};
+
+        RationalCalculator rc = new RationalCalculator(add, sub, mul, div);
 
         int x = 0;
         Scanner scanner = new Scanner(System.in);
@@ -31,13 +37,13 @@ public class Main {
                     }
                     switch (num)
                     {
-                        case 1:
+                        case 1: rc.add.calc();
                             break;
-                        case 2:
+                        case 2: rc.subtract.calc();
                             break;
-                        case 3:
+                        case 3: rc.multiply.calc();
                             break;
-                        case 4:
+                        case 4: rc.divide.calc();
                             break;
                         default:
                             System.out.println("ERROR");
@@ -78,13 +84,13 @@ public class Main {
     public static void printcalculation() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter number x a> ");
-        int xa = scanner.nextInt();
+        xa = scanner.nextInt();
         System.out.print("Enter number x b> ");
-        int xb = scanner.nextInt();
+        xb = scanner.nextInt();
         System.out.print("Enter number y a> ");
-        int ya = scanner.nextInt();
+        ya = scanner.nextInt();
         System.out.print("Enter number y b> ");
-        int yb = scanner.nextInt();
+        yb = scanner.nextInt();
     }
 
     public static int enternumbers() {
