@@ -6,7 +6,11 @@ public class Main {
         NumberTest nt = (n) -> {
             return true;
         };
-        //RationalCalculator rc = (n)->{return ;};
+        /*CalculationOperation add = (Number a, Number b)->{};
+        CalculationOperation sub = (Number a, Number b)->{};
+        CalculationOperation mul = (Number a, Number b)->{};
+        CalculationOperation div = (Number a, Number b)->{};*/
+
         int x = 0;
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -20,7 +24,26 @@ public class Main {
                 case 1:
                     printcalculation();
                     int num = enternumbers();
-                    printsolution();
+                    while (num == 5)
+                    {
+                        printcalculation();
+                        num = enternumbers();
+                    }
+                    switch (num)
+                    {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                        default:
+                            System.out.println("ERROR");
+                            break;
+                    }
+                    printsolution(1, 2);
                     break;
                 case 2:
                     break;
@@ -52,16 +75,6 @@ public class Main {
         System.out.println("Choose calculator:\n1 - Relation calculator\n2 - Vector calculator\n3 - Complex calculator\n4 - Exit program");
     }
 
-    public static int enternumbers() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose operation:\n1 - add\n2 - subtract\n3 - multiply\n4 - divide\n5 - enter numbers again");
-        return scanner.nextInt();
-    }
-
-    public static void printsolution(int suma, int sumb) {
-        System.out.println("--------------------\na = " + suma + "\nb = " + sumb + "\n--------------------");
-    }
-
     public static void printcalculation() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter number x a> ");
@@ -72,5 +85,15 @@ public class Main {
         int ya = scanner.nextInt();
         System.out.print("Enter number y b> ");
         int yb = scanner.nextInt();
+    }
+
+    public static int enternumbers() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choose operation:\n1 - add\n2 - subtract\n3 - multiply\n4 - divide\n5 - enter numbers again");
+        return scanner.nextInt();
+    }
+
+    public static void printsolution(int suma, int sumb) {
+        System.out.println("--------------------\na = " + suma + "\nb = " + sumb + "\n--------------------");
     }
 }
