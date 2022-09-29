@@ -38,9 +38,9 @@ public class Main {
                 x = scanner.nextInt();
             }
             int num = 0;
-            Number a = new Number(0, 0);
-            Number b = new Number(0, 0);
-            Number erg = new Number(0, 0);
+            Number a;
+            Number b;
+            Number erg;
             switch (x) {
                 case 1:
                     printcalculation();
@@ -161,7 +161,7 @@ public class Main {
         return scanner.nextInt();
     }
 
-    public static void printsolution(Number suma) {
-        System.out.println("--------------------\na = " + suma.getA() + "\nb = " + suma.getB() + "\n--------------------");
+    public static void printsolution(Number sum) {
+        System.out.println("--------------------\na = " + sum.getA() + "\nb = " + sum.getB() + "\n--------------------");
     }
 }
