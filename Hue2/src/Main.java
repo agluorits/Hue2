@@ -25,6 +25,8 @@ public class Main {
         };
 
         RationalCalculator rc = new RationalCalculator(add, sub, mul, div);
+        VectorCalculator vc = new VectorCalculator(add, sub, mul, div);
+        ComplexCalculator cc = new ComplexCalculator(add, sub, mul, div);
 
         int x = 0;
         Scanner scanner = new Scanner(System.in);
@@ -35,44 +37,97 @@ public class Main {
                 System.out.println("ERROR! Please write a number between 1 and 4");
                 x = scanner.nextInt();
             }
+            int num = 0;
+            Number a = new Number(0, 0);
+            Number b = new Number(0, 0);
+            Number erg = new Number(0, 0);
             switch (x) {
                 case 1:
                     printcalculation();
-                    int num = enternumbers();
+                    num = enternumbers();
                     while (num == 5) {
                         printcalculation();
                         num = enternumbers();
                     }
+                    a = new Number(xa, xb);
+                    b = new Number(ya, yb);
+                    erg = new Number(0, 0);
                     switch (num) {
                         case 1:
-                            Number a = new Number(xa, xb);
-                            Number b = new Number(ya, yb);
-                            rc.add.calc(a, b);
+                            erg = rc.add(a, b);
                             break;
                         case 2:
-                            a = new Number(xa, xb);
-                            b = new Number(ya, yb);
-                            rc.subtract.calc(a, b);
+                            erg = rc.subtract(a, b);
                             break;
                         case 3:
-                            a = new Number(xa, xb);
-                            b = new Number(ya, yb);
-                            rc.multiply.calc(a, b);
+                            erg = rc.multiply(a, b);
                             break;
                         case 4:
-                            a = new Number(xa, xb);
-                            b = new Number(ya, yb);
-                            rc.divide.calc(a, b);
+                            erg = rc.divide(a, b);
                             break;
                         default:
                             System.out.println("ERROR");
                             break;
                     }
-                    printsolution(1, 2);
+                    printsolution(erg);
                     break;
                 case 2:
+                    printcalculation();
+                    num = enternumbers();
+                    while (num == 5) {
+                        printcalculation();
+                        num = enternumbers();
+                    }
+                    a = new Number(xa, xb);
+                    b = new Number(ya, yb);
+                    erg = new Number(0, 0);
+                    switch (num) {
+                        case 1:
+                            erg = vc.add(a, b);
+                            break;
+                        case 2:
+                            erg = vc.subtract(a, b);
+                            break;
+                        case 3:
+                            erg = vc.multiply(a, b);
+                            break;
+                        case 4:
+                            erg = vc.divide(a, b);
+                            break;
+                        default:
+                            System.out.println("ERROR");
+                            break;
+                    }
+                    printsolution(erg);
                     break;
                 case 3:
+                    printcalculation();
+                    num = enternumbers();
+                    while (num == 5) {
+                        printcalculation();
+                        num = enternumbers();
+                    }
+                    a = new Number(xa, xb);
+                    b = new Number(ya, yb);
+                    erg = new Number(0, 0);
+                    switch (num) {
+                        case 1:
+                            erg = cc.add(a, b);
+                            break;
+                        case 2:
+                            erg = cc.subtract(a, b);
+                            break;
+                        case 3:
+                            erg = cc.multiply(a, b);
+                            break;
+                        case 4:
+                            erg = cc.divide(a, b);
+                            break;
+                        default:
+                            System.out.println("ERROR");
+                            break;
+                    }
+                    printsolution(erg);
                     break;
                 case 4:
                     System.out.println("Exiting programm!");
@@ -82,18 +137,6 @@ public class Main {
                     break;
             }
         }
-    }
-
-    public static void relation(int xa, int xb, int ya, int yb) {
-
-    }
-
-    public static void vector(int xa, int xb, int ya, int yb) {
-
-    }
-
-    public static void complex(int xa, int xb, int ya, int yb) {
-
     }
 
     public static void menue() {
@@ -118,7 +161,7 @@ public class Main {
         return scanner.nextInt();
     }
 
-    public static void printsolution(int suma, int sumb) {
-        System.out.println("--------------------\na = " + suma + "\nb = " + sumb + "\n--------------------");
+    public static void printsolution(Number suma) {
+        System.out.println("--------------------\na = " + suma.getA() + "\nb = " + suma.getB() + "\n--------------------");
     }
 }
