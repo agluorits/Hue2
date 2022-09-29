@@ -24,21 +24,26 @@ public class NumberTester implements NumberTest {
             switch (n1) {
                 case 1:
                     if (n2 % 2 == 0) {
-                        System.out.println(n2 + " ist eine gerade Zahl!");
+                        System.out.println("EVEN");
                     } else {
-                        System.out.println(n2 + " ist eine ungerade Zahl!");
+                        System.out.println("ODD");
                     }
                     break;
                 case 2:
                     if (isPrime(n2)) {
-                        System.out.println(n2 + " ist eine Primzahl!");
+                        System.out.println("PRIME");
                     } else {
-                        System.out.println(n2 + " ist keine Primzahl!");
+                        System.out.println("NO PRIME");
                     }
                     break;
                 case 3:
                     char[] check = String.valueOf(n2).toCharArray();
-                    System.out.println(isPalindrom(check));
+                    if (isPalindrom(check)) {
+                        System.out.println("PALINDROME");
+                    }else
+                    {
+                        System.out.println("NO PALINDROME");
+                    }
                     break;
                 default:
                     System.out.println("ERROR");
