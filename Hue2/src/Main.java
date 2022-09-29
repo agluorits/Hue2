@@ -2,18 +2,27 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
-    int xa = 0;
-    int xb = 0;
-    int ya = 0;
-    int yb = 0;
+    static int xa = 0;
+    static int xb = 0;
+    static int ya = 0;
+    static int yb = 0;
+
     public static void main(String[] args) {
         NumberTest nt = (n) -> {
             return true;
         };
-        CalculationOperation add = (Number a, Number b)->{return new Number(a.getA() + b.getA(), a.getB() + a.getB());};
-        CalculationOperation sub = (Number a, Number b)->{return new Number(a.getA() - b.getA(), a.getB() - b.getB());};
-        CalculationOperation mul = (Number a, Number b)->{return new Number(a.getA() * b.getA(), a.getB() * b.getB());};
-        CalculationOperation div = (Number a, Number b)->{return new Number(a.getA() / b.getA(), a.getB() / b.getB());};
+        CalculationOperation add = (Number a, Number b) -> {
+            return new Number(a.getA() + b.getA(), a.getB() + a.getB());
+        };
+        CalculationOperation sub = (Number a, Number b) -> {
+            return new Number(a.getA() - b.getA(), a.getB() - b.getB());
+        };
+        CalculationOperation mul = (Number a, Number b) -> {
+            return new Number(a.getA() * b.getA(), a.getB() * b.getB());
+        };
+        CalculationOperation div = (Number a, Number b) -> {
+            return new Number(a.getA() / b.getA(), a.getB() / b.getB());
+        };
 
         RationalCalculator rc = new RationalCalculator(add, sub, mul, div);
 
@@ -30,20 +39,30 @@ public class Main {
                 case 1:
                     printcalculation();
                     int num = enternumbers();
-                    while (num == 5)
-                    {
+                    while (num == 5) {
                         printcalculation();
                         num = enternumbers();
                     }
-                    switch (num)
-                    {
-                        case 1: rc.add.calc();
+                    switch (num) {
+                        case 1:
+                            Number a = new Number(xa, xb);
+                            Number b = new Number(ya, yb);
+                            rc.add.calc(a, b);
                             break;
-                        case 2: rc.subtract.calc();
+                        case 2:
+                            a = new Number(xa, xb);
+                            b = new Number(ya, yb);
+                            rc.subtract.calc(a, b);
                             break;
-                        case 3: rc.multiply.calc();
+                        case 3:
+                            a = new Number(xa, xb);
+                            b = new Number(ya, yb);
+                            rc.multiply.calc(a, b);
                             break;
-                        case 4: rc.divide.calc();
+                        case 4:
+                            a = new Number(xa, xb);
+                            b = new Number(ya, yb);
+                            rc.divide.calc(a, b);
                             break;
                         default:
                             System.out.println("ERROR");
