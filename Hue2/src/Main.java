@@ -6,10 +6,10 @@ public class Main {
         NumberTest nt = (n) -> {
             return true;
         };
-        /*CalculationOperation add = (Number a, Number b)->{};
-        CalculationOperation sub = (Number a, Number b)->{};
-        CalculationOperation mul = (Number a, Number b)->{};
-        CalculationOperation div = (Number a, Number b)->{};*/
+        CalculationOperation add = (Number a, Number b)->{return ;};
+        CalculationOperation sub = (Number a, Number b)->{return ;};
+        CalculationOperation mul = (Number a, Number b)->{return ;};
+        CalculationOperation div = (Number a, Number b)->{return ;};
 
         int x = 0;
         Scanner scanner = new Scanner(System.in);
