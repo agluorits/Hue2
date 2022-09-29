@@ -22,28 +22,51 @@ public class NumberTester implements NumberTest {
             int n2 = Integer.parseInt(n[1]);
             //System.out.println(n1 + " " + n2);
             switch (n1) {
-                case 1: if (n2 % 2 == 0)
-                {
-                    System.out.println(n2 + " ist eine gerade Zahl!");
-                }else
-                {
-                    System.out.println(n2 + " ist eine ungerade Zahl!");
-                }
+                case 1:
+                    if (n2 % 2 == 0) {
+                        System.out.println(n2 + " ist eine gerade Zahl!");
+                    } else {
+                        System.out.println(n2 + " ist eine ungerade Zahl!");
+                    }
                     break;
-                case 2: if (isPrime(n2)){
-                    System.out.println(n2 + " ist eine Primzahl!");
-                }else {
-                    System.out.println(n2 + " ist keine Primzahl!");
-                }
+                case 2:
+                    if (isPrime(n2)) {
+                        System.out.println(n2 + " ist eine Primzahl!");
+                    } else {
+                        System.out.println(n2 + " ist keine Primzahl!");
+                    }
                     break;
                 case 3:
-                    System.out.println("not Ready now");
+                    char[] check = String.valueOf(n2).toCharArray();
+                    System.out.println(isPalindrom(check));
                     break;
                 default:
                     System.out.println("ERROR");
                     break;
             }
         }
+    }
+
+    public static boolean isPalindrom(char[] wort) {
+        boolean palindrom = false;
+        if (wort.length % 2 == 0) {
+            for (int i = 0; i < wort.length / 2 - 1; i++) {
+                if (wort[i] != wort[wort.length - i - 1]) {
+                    return false;
+                } else {
+                    palindrom = true;
+                }
+            }
+        } else {
+            for (int i = 0; i < (wort.length - 1) / 2 - 1; i++) {
+                if (wort[i] != wort[wort.length - i - 1]) {
+                    return false;
+                } else {
+                    palindrom = true;
+                }
+            }
+        }
+        return palindrom;
     }
 
     public void setOddEvenTester(NumberTester oddTester) {
@@ -103,8 +126,7 @@ public class NumberTester implements NumberTest {
 
 
         for (int s : sumarray) {
-            if (s == p)
-            {
+            if (s == p) {
                 return true;
             }
         }
