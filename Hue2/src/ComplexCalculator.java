@@ -1,6 +1,6 @@
-public class RationalCalculator extends AbstractCalculator {
+public class ComplexCalculator extends AbstractCalculator {
 
-    public RationalCalculator(CalculationOperation add, CalculationOperation subract, CalculationOperation multiply, CalculationOperation divide) {
+    public ComplexCalculator(CalculationOperation add, CalculationOperation subract, CalculationOperation multiply, CalculationOperation divide) {
         super(add, subract, multiply, divide);
     }
 
